@@ -1,0 +1,27 @@
+RewriteEngine on 
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+
+
+RewriteRule ^(.*).html$ $1.php
+
+RewriteRule ^logout$ logout.php [L]
+RewriteRule ^login$ login.php [L]
+RewriteRule ^forget_password$ forget_password.php [L]
+RewriteRule ^ajax_serach$ ajax_serach.php [L]
+
+
+RewriteRule ^dashboard/(.*)/(.*)/(.*)/([0-9]+)$ dashboard.php?pname=$1&action=$2&cid=$3&id=$4 [L]
+RewriteRule ^dashboard/(.*)/(.*)/([0-9]+)$ dashboard.php?pname=$1&action=$2&id=$3 [L]
+RewriteRule ^dashboard/(.*)/(.*)$ dashboard.php?pname=$1&action=$2 [L]
+
+RewriteRule ^dashboard/(.*)$ dashboard.php?other=$1 [L]
+RewriteRule ^dashboard/(.*)/(.*)$ dashboard.php?other=$1&action=$2 [L]
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+ 
+RewriteRule ^.*$ ./index.php
+
+
+
