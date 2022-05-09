@@ -1,0 +1,42 @@
+
+//-------------------User----------------------------
+$database->schema()->create('users', function ($table) {
+	    $table->increments('id');
+	    $table->string('username')->unique();
+	    $table->string('password'); 
+            $table->string('name');
+            $table->string('avatar')->nullable();
+            $table->string('email')->unique();
+	    $table->string('phone')->unique();
+            $table->timestamps();
+	});
+
+//---------------------Role-----------------------
+$database->schema()->create('roles', function ($table) {
+	    $table->id();
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
+            $table->timestamps();
+	});
+//---------------------Permission-----------------------
+$database->schema()->create('permissions', function ($table) {
+	    $table->id();
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
+            $table->timestamps();
+	});
+//-------------------Role User----------------------------	
+	$database->schema()->create('role_user', function ($table) {
+	    $table->primary(['user_id','role_id']);
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('role_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
+	});
+
+//-------------------Permission Role----------------------------
+	$database->schema()->create('permission_role', function ($table) {
+	    $table->primary(['permission_id','role_id']);
+            $table->foreignId('permission_id')->constrained()->onDelete('cascade');
+            $table->foreignId('role_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
+	});

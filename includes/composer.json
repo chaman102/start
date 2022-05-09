@@ -1,0 +1,23 @@
+{
+    "require": {
+        "chaman/first-package": "^1.0",
+        "illuminate/database": "^8.27",
+        "illuminate/events": "^8.27",
+        "illuminate/hashing": "^8.27",
+		"intervention/image": "^2.5",
+        "illuminate/filesystem": "^8.31",
+		"coderatio/simple-backup": "^1.0",
+		"maximebf/debugbar": "^1.16",
+        "google/apiclient": "^2.7",
+        "razorpay/razorpay": "2.*",
+        "illuminate/http": "^8.49"		
+    },
+	 "repositries":[
+        {
+            "type":"path",
+            "url" :"../../chaman/first-package"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
